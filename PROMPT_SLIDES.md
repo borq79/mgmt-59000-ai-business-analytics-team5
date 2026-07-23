@@ -48,6 +48,21 @@ Clearly describe the problem or opportunity addressed by the project and explain
 - How distinguishable are genres purely from audio features, without knowing the label?
 
 
+### Grace's Notes
+
+> my faorite central idea: **predictive regression — which audio characteristics best predict a track's popularity?**
+>
+> Using danceability, energy, loudness, valence, tempo, acousticness, speechiness, explicit, and duration as predictors, with genre as a possible categorical control. This gives us a specific & measurable question as our main deliverable
+>
+> I would add ~3 mini-projects that use the same feature data to keep consistency with the main deliverable. here's a couple ideas:
+> 1. **Correlation/descriptive foundation**  correlation matrix across the core audio features (energy, loudness, valence, danceability, acousticness), used to justify our feature choices in the regression (e.g., if energy and loudness are tightly correlated, we may drop one or combine them)
+> 2. **Unsupervised clustering**  cluster tracks by audio features and compare the clusters to Spotify's own `track_genre` labels. Question: does the natural structure in the data match Spotify's genre taxonomy, or reveal something different?
+> 3. **Myth-busting validation**  take 2-3 fun sub-questions (does danceability actually predict popularity? are explicit tracks more or less popular?) and answer them directly using the regression's feature importance, rather than as standalone stats
+>
+>some data callouts (114,000 rows, 20 columns, 114 genres):
+> - **24,259 duplicate `track_id` rows** — same tracks repeat under multiple genres. We'll need to choose which to keep or aggregate 
+> - Popularity is **skewed low** — median 35, mean 33, full range 0-100. Worth deciding early whether we model raw popularity (regression) or bucket into tiers (classification), since this affects how we frame results.
+> - Only 3 missing values total, but duration has outliers
 
 
 # 2. Project Goal and Research Questions.
